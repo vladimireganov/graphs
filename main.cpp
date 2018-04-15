@@ -744,13 +744,44 @@ int main(int argc, const char * argv[]) {
     graph2.insert(Edge(9, 12));
     
     graph2.insert(Edge(11, 12));
+    
+    DenseGRAPH notDAG(13 ,0);
+    
+    notDAG.insert(Edge(0, 1));
+    notDAG.insert(Edge(0, 5));
+    notDAG.insert(Edge(0, 6));
+    notDAG.insert(Edge(2, 0));
+    notDAG.insert(Edge(2, 3));
+    notDAG.insert(Edge(3, 2));
+    notDAG.insert(Edge(3, 5));
+    notDAG.insert(Edge(4, 2));
+    notDAG.insert(Edge(4, 3));
+    notDAG.insert(Edge(4, 11));
+    
+    notDAG.insert(Edge(5, 4));
+    notDAG.insert(Edge(6, 4));
+    notDAG.insert(Edge(6, 9));
+    notDAG.insert(Edge(7, 6));
+    notDAG.insert(Edge(7, 8));
+    notDAG.insert(Edge(8, 7));
+    notDAG.insert(Edge(8, 9));
+    notDAG.insert(Edge(9, 10));
+    notDAG.insert(Edge(9, 11));
+    notDAG.insert(Edge(10, 12));
+    notDAG.insert(Edge(11, 12));
+    notDAG.insert(Edge(12, 9));
 //    G2neato<DenseGRAPH> gra(graph2);
 //    gra.graph();
 //    tc_dfs<DenseGRAPH> dfs_graph(graph2);
 //    G2neato<DenseGRAPH> dfs_gra(dfs_graph.get_graph());
    // dfs_gra.graph();
-    ts_draw<DenseGRAPH> ts(graph2);
-    ts.draw();
-    sc
+//    ts_draw<DenseGRAPH> ts(graph2);
+//    ts.draw();
+    sc<DenseGRAPH> scgraph(notDAG);
+    vector<int> ids = scgraph.getId();
+    for (int i = 0; i < ids.size(); i++) {
+        cout << ids[i] <<endl;
+    }
+    //G2neato<DenseGRAPH> scgraph;
     return 0;
 }
